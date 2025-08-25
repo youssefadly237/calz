@@ -1,0 +1,57 @@
+name: Calculation Accuracy
+description: Report scientifically incorrect calendar calculations
+title: "[ACCURACY] "
+labels: ["accuracy"]
+body:
+  - type: input
+    id: calendar-system
+    attributes:
+      label: Calendar System
+      description: Which calendar system has incorrect calculations?
+      placeholder: "e.g. Gregorian, ISO, etc."
+    validations:
+      required: true
+
+  - type: input
+    id: input-date
+    attributes:
+      label: Input Date
+      placeholder: "e.g., 2024-01-15 or 1445-07-05"
+    validations:
+      required: true
+
+  - type: input
+    id: calz-output
+    attributes:
+      label: Calz Output
+      placeholder: "What result did calz give?"
+    validations:
+      required: true
+
+  - type: input
+    id: expected-result
+    attributes:
+      label: Expected Result
+      placeholder: "What should the correct result be?"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: reference-source
+    attributes:
+      label: Reference Source
+      description: Where did you get the expected result?
+      options:
+        - Dershowitz & Reingold book
+        - Academic paper
+        - Verified online calculator
+        - Other reliable source
+    validations:
+      required: true
+
+  - type: textarea
+    id: source-details
+    attributes:
+      label: Source Details
+      description: Citation, URL, or specific reference
+      placeholder: "Page number, URL, or detailed citation"

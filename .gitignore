@@ -3,3 +3,9 @@
 
 # rust
 /target
+
+# python
+.python-version
+pyproject.toml
+/.venv
+uv.lock

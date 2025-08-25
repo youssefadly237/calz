@@ -1,4 +1,9 @@
-# Calz
+# Calz &emsp; [![Build Status]][actions] [![Latest Version]][crates.io]
+
+[Build Status]: https://img.shields.io/github/actions/workflow/status/youssefadly237/calz/ci.yml?branch=main
+[actions]: https://github.com/youssefadly237/calz/actions?query=branch%3Amain
+[Latest Version]: https://img.shields.io/crates/v/calz.svg
+[crates.io]: https://crates.io/crates/calz
 
 **Status: Work in Progress**  
 This library is **not production-ready**. APIs and calculations may change, and

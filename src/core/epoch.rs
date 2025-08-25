@@ -1,3 +1,5 @@
+use serde::{Deserialize, Serialize};
+
 /// Represents a count of days relative to a fixed reference point (an epoch).
 ///
 /// In this library, [`EpochDay`] is defined as the number of days since
@@ -26,7 +28,7 @@
 /// assert_eq!(EpochDay(1).0, 1);  // 0001-01-02
 /// assert_eq!(EpochDay(-1).0, -1); // 0000-12-31
 /// ```
-#[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Debug)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Serialize, Deserialize)]
 pub struct EpochDay(pub i64);
 
 /// The Rata Die (RD) epoch: proleptic Gregorian 0001-01-01 (midnight).

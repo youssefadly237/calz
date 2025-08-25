@@ -11,7 +11,8 @@ pub struct Date {
 #[derive(Debug, Clone, Copy)]
 pub enum Variant {
     Proleptic,
-} // more variants later if you want “cutover”
+    Cutover,
+}
 
 pub struct Gregorian;
 

@@ -1,4 +1,5 @@
 use super::epoch::EpochDay;
+use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
 /// A generic context struct providing extra information to calendar computations.
@@ -6,7 +7,7 @@ use std::collections::HashMap;
 /// This struct allows calendars to use optional parameters for astronomical calculations,
 /// historical adjustments, or calendar-specific rules. It can be passed to `to_epoch_day`
 /// and `from_epoch_day` methods in the `Calendar` trait.
-#[derive(Debug, Clone, Default)]
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
 pub struct Context {
     /// Geographic longitude in degrees.
     /// Used for astronomical calendars to calculate local sunrise, moon phases, etc.
@@ -30,9 +31,28 @@ pub struct Context {
 
     /// Calendar-specific options stored as key-value pairs.
     /// Can be used to specify rules like leap months, era variants, or algorithmic choices.
-    pub options: Option<HashMap<String, String>>,
+    #[serde(default)]
+    pub options: HashMap<String, String>, // Use empty map by default
 
     /// Historical cutoff dates for calendars that changed over time.
     /// Example: Julian→Gregorian transition, stored as `{ "GregorianStart": EpochDay(...) }`.
-    pub cutoffs: Option<HashMap<String, EpochDay>>,
+    #[serde(default)]
+    pub cutoffs: HashMap<String, EpochDay>, // Use empty map by default
+}
+
+impl Context {
+    /// Example validation method
+    pub fn validate(&self) -> Result<(), String> {
+        if let Some(lon) = self.longitude_deg
+            && !(-180.0..=180.0).contains(&lon)
+        {
+            return Err("Longitude out of range".into());
+        }
+        if let Some(lat) = self.latitude_deg
+            && !(-90.0..=90.0).contains(&lat)
+        {
+            return Err("Latitude out of range".into());
+        }
+        Ok(())
+    }
 }
