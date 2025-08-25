@@ -45,8 +45,9 @@ All contributions must comply with the GPLv3 license.
 
 ## License
 
-`calz` is licensed under the **GNU General Public License v3 (GPLv3)**.
+Licensed under either of [LICENSE-APACHE, Version 2.0](./LICENSE-APACHE)
+or [LICENSE-MIT](.LICENSE-MIT) at your option.
 
-- You may use, modify, and distribute this software commercially.
-- Any derivative work must also be released under **GPLv3**.
-- See [LICENSE](./LICENSE) for the full text.
+Unless you explicitly state otherwise, any contribution intentionally submitted
+for inclusion in Calz by you, as defined in the Apache-2.0 license, shall be
+dual licensed as above, without any additional terms or conditions.
